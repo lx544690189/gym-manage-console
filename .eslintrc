@@ -2,6 +2,8 @@
   "extends": "eslint-config-egg",
   "rules":{
     "linebreak-style": ["off", "windows"],
-    "strict":"off"
+    "strict":"off",
+    "valid-jsdoc":"off",
+    "no-empty-pattern":"off"
   }
 }

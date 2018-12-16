@@ -10,4 +10,8 @@ module.exports = app => {
   // test
   router.get('/test/get', controller.test.get);
   router.post('/test/post', controller.test.post);
+  // account-
+  router.get('/account/getUserInfo', controller.accounts.getUserInfo);
+  // 登录校验
+  router.post('/login', app.passport.authenticate('local', { successRedirect: '/account/getUserInfo' }));
 };

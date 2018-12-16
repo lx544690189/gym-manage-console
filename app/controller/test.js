@@ -19,6 +19,7 @@ class TestController extends Controller {
     const { ctx } = this;
     const { query: { id } } = ctx;
     console.log('id: ', id);
+    console.log(ctx.isAuthenticated());
     ctx.body = await ctx.model.Test.findByPk(toInt(id));
   }
 
