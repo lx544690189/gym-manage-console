@@ -7,7 +7,19 @@ class AccountsController extends Controller {
   async getUserInfo() {
     const { ctx } = this;
     ctx.body = success({
-      data: ctx.user,
+      data: {
+        ...ctx.user,
+        password: undefined,
+      },
+    });
+  }
+
+  // 退出登录
+  async logout() {
+    const { ctx } = this;
+    ctx.logout();
+    ctx.body = success({
+      message: '退出登录成功！',
     });
   }
 

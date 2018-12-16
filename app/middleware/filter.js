@@ -8,6 +8,8 @@ module.exports = options => {
       if (!ctx.isAuthenticated()) {
         ctx.body = {
           login: false,
+          success: false,
+          message: '未登录！',
         };
       }
     }

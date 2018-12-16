@@ -3,14 +3,14 @@ const Service = require('egg').Service;
 
 class Accounts extends Service {
   async login(where) {
-    const Accounts = await this.ctx.model.Accounts.findOne({
+    const account = await this.ctx.model.Accounts.findOne({
       where,
     });
-    if (!Accounts) {
+    if (!account) {
       return error({ message: '用户名或密码错误！' });
     }
     return success({
-      data: Accounts,
+      data: account,
     });
   }
 }

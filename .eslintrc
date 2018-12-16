@@ -1,5 +1,6 @@
 {
   "extends": "eslint-config-egg",
+  "parser": "babel-eslint",
   "rules":{
     "linebreak-style": ["off", "windows"],
     "strict":"off",
