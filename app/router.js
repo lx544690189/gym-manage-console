@@ -13,6 +13,7 @@ module.exports = app => {
   // account-
   router.get('/account/getUserInfo', controller.accounts.getUserInfo);
   router.get('/logout', controller.accounts.logout);
+  router.post('/account/list', controller.accounts.list);
   // 登录校验
   router.post('/login', app.passport.authenticate('local', { successRedirect: '/account/getUserInfo' }));
 };

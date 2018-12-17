@@ -23,6 +23,17 @@ class AccountsController extends Controller {
     });
   }
 
+  // 获取用户列表
+  async list() {
+    const { ctx } = this;
+    const { query } = ctx;
+    const result = await ctx.service.accounts.list(query);
+
+    ctx.body = success({
+      data: result,
+    });
+  }
+
 }
 
 module.exports = AccountsController;

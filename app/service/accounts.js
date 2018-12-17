@@ -13,6 +13,14 @@ class Accounts extends Service {
       data: account,
     });
   }
+
+  async list({ offset = 0, limit = 10 }) {
+    return this.ctx.model.Accounts.findAndCountAll({
+      offset,
+      limit,
+      order: [[ 'created_at', 'desc' ]],
+    });
+  }
 }
 
 module.exports = Accounts;
