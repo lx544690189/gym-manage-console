@@ -26,12 +26,23 @@ class AccountsController extends Controller {
   // 获取用户列表
   async list() {
     const { ctx } = this;
-    const { query } = ctx;
-    const result = await ctx.service.accounts.list(query);
+    const { pageNumber = 1, pageSize = 10 } = ctx.request.body;
+    const result = await ctx.service.accounts.list({
+      pageNumber,
+      pageSize,
+    });
 
     ctx.body = success({
       data: result,
     });
+  }
+
+  // 新增用户
+  async add() {
+    const { ctx } = this;
+    const { name, sex, mobile, birthday } = ctx.request.body;
+    const result = await ctx.service.accounts.create({ name, sex, mobile, birthday });
+    ctx.body = result;
   }
 
 }

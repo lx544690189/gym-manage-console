@@ -20,6 +20,7 @@ module.exports = appInfo => {
       database: 'gym',
       username: 'root',
       password: 'password',
+      timezone: '+08:00', // 东八时区
     },
     security: {
       csrf: false,

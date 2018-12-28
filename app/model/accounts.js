@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
@@ -8,9 +10,20 @@ module.exports = app => {
     name: STRING,
     age: INTEGER,
     sex: STRING,
-    birthday: DATE,
+    birthday: {
+      type: DATE,
+      get() {
+        return moment(this.getDataValue('birthday')).format('YYYY-MM-DD');
+      },
+    },
     mobile: STRING,
     address: STRING,
+    created_at: {
+      type: DATE,
+      get() {
+        return moment(this.getDataValue('created_at')).format('YYYY-MM-DD HH:mm:ss');
+      },
+    },
   });
 
   return Accounts;
