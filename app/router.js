@@ -15,6 +15,8 @@ module.exports = app => {
   router.get('/logout', controller.accounts.logout);
   router.post('/account/list', controller.accounts.list);
   router.post('/account/add', controller.accounts.add);
+  router.post('/account/update', controller.accounts.update);
+  router.post('/account/resetPassword', controller.accounts.resetPassword);
   // 登录校验
   router.post('/login', app.passport.authenticate('local', { successRedirect: '/account/getUserInfo' }));
 };
