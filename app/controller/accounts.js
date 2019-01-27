@@ -72,6 +72,28 @@ class AccountsController extends Controller {
     ctx.body = result;
   }
 
+  // 账号禁用
+  async disable() {
+    const { ctx } = this;
+    const { id } = ctx.request.body;
+    const result = await ctx.service.accounts.update({
+      id,
+      status: 2,
+    });
+    ctx.body = result;
+  }
+
+  // 账号启用
+  async enable() {
+    const { ctx } = this;
+    const { id } = ctx.request.body;
+    const result = await ctx.service.accounts.update({
+      id,
+      status: 1,
+    });
+    ctx.body = result;
+  }
+
 }
 
 module.exports = AccountsController;

@@ -3,20 +3,18 @@ const moment = require('moment');
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
-  const Accounts = app.model.define('accounts', {
+  const Tenant = app.model.define('tenant', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    username: STRING,
-    password: STRING,
-    name: STRING,
-    age: INTEGER,
-    sex: STRING,
-    birthday: {
-      type: DATE,
-      get() {
-        return moment(this.getDataValue('birthday')).format('YYYY-MM-DD');
-      },
-    },
-    mobile: STRING,
+    tenantName: STRING,
+    tenantPhone: STRING,
+    userName: STRING,
+    userMobile: STRING,
+    province: STRING,
+    provinceCode: STRING,
+    cityName: STRING,
+    cityCode: STRING,
+    district: STRING,
+    districtCode: STRING,
     address: STRING,
     status: INTEGER,
     created_at: {
@@ -31,7 +29,10 @@ module.exports = app => {
         return moment(this.getDataValue('updated_at')).format('YYYY-MM-DD HH:mm:ss');
       },
     },
+  }, {
+    // timestamps: false, // 去除createAt updateAt
+    // freezeTableName: true, // 默认是false，sequelize默认会在表名后加上s
   });
 
-  return Accounts;
+  return Tenant;
 };
