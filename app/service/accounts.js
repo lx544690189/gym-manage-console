@@ -10,7 +10,7 @@ class Accounts extends Service {
     if (!account) {
       return error({ message: '用户名或密码错误！' });
     }
-    if (account.status === 1) {
+    if (account.status !== 1) {
       return error({ message: '您已被管理员禁止登陆！' });
     }
     return success({
