@@ -11,7 +11,7 @@ module.exports = app => {
     userMobile: STRING,
     province: STRING,
     provinceCode: STRING,
-    cityName: STRING,
+    city: STRING,
     cityCode: STRING,
     district: STRING,
     districtCode: STRING,

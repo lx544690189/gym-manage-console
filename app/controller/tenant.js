@@ -16,7 +16,19 @@ class TenantController extends Controller {
   // 新增租户
   async add() {
     const { ctx } = this;
-    const entity = mapValue([ 'tenantName', 'tenantPhone', 'userName', 'userMobile' ], ctx.request.body);
+    const entity = mapValue([ 'tenantName', 'tenantPhone', 'userName', 'userMobile', 'provinceCode', 'cityCode', 'districtCode' ], ctx.request.body);
+    if (entity.provinceCode && entity.cityCode && entity.districtCode) {
+      const res = await ctx.service.address.findAddressTreeData({
+        provinceCode: entity.provinceCode,
+        cityCode: entity.cityCode,
+        districtCode: entity.districtCode,
+      });
+      if (res) {
+        entity.province = res[0].label;
+        entity.city = res[0].children[0].label;
+        entity.district = res[0].children[0].children[0].label;
+      }
+    }
     await ctx.service.tenant.create(entity);
     ctx.body = success();
   }

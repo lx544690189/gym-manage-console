@@ -1,4 +1,4 @@
-const { getWhereSql } = require('../../utils/index');
+const { getWhereLikeSql } = require('../../utils/index');
 const Service = require('egg').Service;
 
 class Tenant extends Service {
@@ -25,7 +25,7 @@ class Tenant extends Service {
       offset: (pageNumber - 1) * 10,
       limit: pageSize,
       order: [[ 'created_at', 'desc' ]],
-      where: getWhereSql({ tenantName, userName }),
+      where: getWhereLikeSql({ tenantName, userName }),
     });
   }
 }
