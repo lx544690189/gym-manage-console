@@ -6,7 +6,7 @@ class TenantController extends Controller {
   // 获取租户列表
   async list() {
     const { ctx } = this;
-    const entity = mapValue([ 'tenantName', 'userName' ], ctx.request.body);
+    const entity = mapValue([ 'tenantName', 'userName' ], ctx.request.query);
     const result = await ctx.service.tenant.list(entity);
     ctx.body = success({
       data: result,

@@ -25,4 +25,10 @@ module.exports = app => {
   router.get('/tenant/list', controller.tenant.list);
   router.post('/tenant/add', controller.tenant.add);
   router.post('/tenant/update', controller.tenant.update);
+  // 菜单
+  router.get('/menu/list', controller.menu.list);
+  router.post('/menu/addMenu', controller.menu.addMenu);
+  router.post('/menu/addSubMenu', controller.menu.addSubMenu);
+  router.post('/menu/updateMenu', controller.menu.updateMenu);
+  router.post('/menu/updateSubMenu', controller.menu.updateSubMenu);
 };
