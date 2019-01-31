@@ -1,4 +1,4 @@
-const { success, error, getWhereSql } = require('../../utils/index');
+const { success, error, getWhereLikeSql } = require('../../utils/index');
 const Service = require('egg').Service;
 
 class Accounts extends Service {
@@ -30,7 +30,7 @@ class Accounts extends Service {
       //     [Op.like]: `%${userName}%`,
       //   },
       // },
-      where: getWhereSql({ userName, mobile }),
+      where: getWhereLikeSql({ userName, mobile }),
     });
   }
 

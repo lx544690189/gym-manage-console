@@ -23,11 +23,11 @@ function error({ message = '请求失败', data = null }) {
 }
 
 /**
- * 便捷生成where查询语句
+ * 便捷生成where - like查询语句, 去除空值
  * @param {object}
  * 如：`{userName:'admin'}`
  */
-function getWhereSql(params) {
+function getWhereLikeSql(params) {
   const where = {};
   Object.keys(params).forEach(key => {
     if (params[key]) {
@@ -36,6 +36,22 @@ function getWhereSql(params) {
       };
     }
   });
+  return where;
+}
+
+/**
+ * 便捷生成where查询语句, 去除空值
+ * @param {object}
+ * 如：`{userName:'admin'}`
+ */
+function getWhereSql(params) {
+  const where = {};
+  Object.keys(params).forEach(key => {
+    if (params[key]) {
+      where[key] = params[key];
+    }
+  });
+  console.log(where);
   return where;
 }
 
@@ -59,4 +75,4 @@ function mapValue(keys, params, filterEmpty = true) {
   return entity;
 }
 
-module.exports = { success, error, getWhereSql, mapValue };
+module.exports = { success, error, getWhereSql, getWhereLikeSql, mapValue };
