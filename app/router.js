@@ -31,4 +31,8 @@ module.exports = app => {
   router.post('/menu/addSubMenu', controller.menu.addSubMenu);
   router.post('/menu/updateMenu', controller.menu.updateMenu);
   router.post('/menu/updateSubMenu', controller.menu.updateSubMenu);
+  // 课程
+  router.get('/lecture/list', controller.lecture.list);
+  router.post('/lecture/add', controller.lecture.add);
+  router.post('/lecture/updateStatus', controller.lecture.updateStatus);
 };
