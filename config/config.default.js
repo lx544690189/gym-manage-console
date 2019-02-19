@@ -10,6 +10,10 @@ module.exports = appInfo => {
       unAuthUtl: [
         '/login',
         '/logout',
+        '/upload',
+        '/lecture/add',
+        '/lecture/list',
+        '/lecture/updateStatus',
       ], // 不需登录鉴权的url
     },
     // 数据库配置
@@ -25,8 +29,13 @@ module.exports = appInfo => {
       password: 'Lx82213175',
       timezone: '+08:00', // 东八时区
     },
+    // 安全认证
     security: {
       csrf: false,
+    },
+    // 文件上传、下载
+    multipart: {
+      mode: 'file',
     },
   };
 };
