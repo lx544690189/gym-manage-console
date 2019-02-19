@@ -14,6 +14,8 @@ module.exports = app => {
   router.post('/test/post', controller.test.post);
   // 公共查询数据
   router.get('/address/treeData', controller.address.treeData);
+  // 通用接口
+  router.post('/upload', controller.common.upload);
   // account-
   router.get('/account/getUserInfo', controller.accounts.getUserInfo);
   router.get('/logout', controller.accounts.logout);
