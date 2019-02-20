@@ -20,7 +20,7 @@ const options = {
     size: '$(fsize)', // 资源尺寸，单位为字节
     width: '$(imageInfo.width)', // 图片宽度
     height: '$(imageInfo.height)', // 图片高度
-    imageAve: '$(imageAve)', // 图片主色调
+    imageAve: '$(imageAve.RGB)', // 图片主色调
     type: '$(mimeType)', // 资源类型
     key: '$(key)', // 文件保存在空间中的资源名
     hash: '$(etag)', // 文件hash值
