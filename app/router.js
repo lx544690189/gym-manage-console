@@ -16,6 +16,7 @@ module.exports = app => {
   router.get('/address/treeData', controller.address.treeData);
   // 通用接口
   router.post('/upload', controller.common.upload);
+  router.get('/getUploadToken', controller.common.getUploadToken);
   // account-
   router.get('/account/getUserInfo', controller.accounts.getUserInfo);
   router.get('/logout', controller.accounts.logout);
