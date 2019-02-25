@@ -1,4 +1,4 @@
-# sequelize-project
+# GYM-CONSOLE
 
 
 
