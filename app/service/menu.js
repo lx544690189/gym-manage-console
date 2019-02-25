@@ -21,7 +21,7 @@ class Menu extends Service {
   }
 
   // 分页列表
-  async list({ name }) {
+  async list({ name } = {}) {
     return this.ctx.model.Menu.findAndCountAll({
       include: [{
         model: this.app.model.SubMenu,
