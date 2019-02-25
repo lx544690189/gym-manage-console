@@ -13,6 +13,7 @@ class Accounts extends Service {
     if (account.status !== 1) {
       return error({ message: '您已被管理员禁止登陆！' });
     }
+    delete account.password;
     return success({
       data: account,
     });
