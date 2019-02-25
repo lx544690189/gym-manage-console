@@ -9,11 +9,6 @@ module.exports = appInfo => {
     filter: {
       unAuthUtl: [
         '/login',
-        '/logout',
-        '/upload',
-        '/lecture/add',
-        '/lecture/list',
-        '/lecture/updateStatus',
       ], // 不需登录鉴权的url
     },
     // 数据库配置
