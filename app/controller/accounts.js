@@ -4,13 +4,37 @@ const { success, error, mapValue } = require('../../utils/index');
 
 class AccountsController extends Controller {
 
-  // 登录后重定向地址，返回用户信息
+  // 登录
+  async login() {
+    const { ctx } = this;
+    const userInfo = mapValue([ 'username', 'password' ], ctx.request.body);
+    const result = await ctx.service.accounts.login(userInfo);
+    if (result.success) {
+      ctx.login(result.data);
+      ctx.body = success();
+    } else {
+      ctx.body = result;
+    }
+  }
+
+  // 获取菜单信息、用户信息
+  async getBaseInfo() {
+    const { ctx } = this;
+    const { rows } = await ctx.service.menu.list();
+    ctx.body = success({
+      data: {
+        userInfo: ctx.user,
+        menu: rows,
+      },
+    });
+  }
+
+  // 获取当前登录用户信息
   async getUserInfo() {
     const { ctx } = this;
     ctx.body = success({
       data: {
         ...ctx.user,
-        password: undefined,
       },
     });
   }

@@ -6,7 +6,7 @@
 module.exports = app => {
   const { router, controller } = app;
   // 登录校验
-  router.post('/login', app.passport.authenticate('local', { successRedirect: '/account/getUserInfo' }));
+  router.post('/login', controller.accounts.login);
   // index
   router.get('/', controller.home.index);
   // test
@@ -19,6 +19,7 @@ module.exports = app => {
   router.get('/getUploadToken', controller.common.getUploadToken);
   // account-
   router.get('/account/getUserInfo', controller.accounts.getUserInfo);
+  router.get('/account/getBaseInfo', controller.accounts.getBaseInfo);
   router.get('/logout', controller.accounts.logout);
   router.post('/account/list', controller.accounts.list);
   router.post('/account/add', controller.accounts.add);
