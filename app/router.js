@@ -39,4 +39,9 @@ module.exports = app => {
   router.get('/lecture/list', controller.lecture.list);
   router.post('/lecture/add', controller.lecture.add);
   router.post('/lecture/updateStatus', controller.lecture.updateStatus);
+  // 角色
+  router.get('/role/list', controller.role.list);
+  router.post('/role/add', controller.role.add);
+  router.post('/role/update', controller.role.update);
+
 };
