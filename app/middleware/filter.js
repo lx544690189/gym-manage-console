@@ -6,9 +6,9 @@ module.exports = options => {
     if (!unAuthUtl.includes(ctx.request.url)) {
       // 是否登录
       if (!ctx.isAuthenticated()) {
+        ctx.status = 403;
         ctx.body = {
-          login: false,
-          success: false,
+          code: 4031,
           message: '未登录！',
         };
       }
