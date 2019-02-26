@@ -36,3 +36,9 @@ $ open http://localhost:7001/
 - [ ] 来访记录
 - [ ] 员工绩效
 - [ ] more...
+
+## 注意事项记录
+- 框架默认启用csrf验证，若使用需在异步请求头部加上'x-csrf-token'，form表单的话加上_csrf字段。
+- [egg-passport](https://github.com/eggjs/egg-passport)登录后需要指定跳转url，对于ajax登录方式没必要重定向。暂时没找到如何配置，登录未使用此插件。
+- 如果你的模型对象中表名未加s，Sequelize默认会加上的，可通过配置`freezeTableName: true`来禁止此功能。
+- insert、update表时，Sequelize将自动更新列`created_at`、`updated_at`，若表中无此字段，可配置`timestamps: false`禁止。
