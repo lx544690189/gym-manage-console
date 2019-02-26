@@ -4,6 +4,7 @@ module.exports = app => {
   const Menu = app.model.define('menu', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     name: STRING,
+    icon: STRING,
     orderId: INTEGER,
   }, {
     timestamps: false,

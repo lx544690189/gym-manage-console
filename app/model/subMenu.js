@@ -5,7 +5,6 @@ module.exports = app => {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     pId: INTEGER,
     name: STRING,
-    icon: STRING,
     url: STRING,
     orderId: INTEGER,
   }, {
