@@ -17,7 +17,7 @@ class AccountsController extends Controller {
     }
   }
 
-  // 获取菜单信息、用户信息
+  // 获取菜单信息、用户信息、七牛token
   async getBaseInfo() {
     const { ctx } = this;
     const { rows } = await ctx.service.menu.list();
@@ -25,6 +25,9 @@ class AccountsController extends Controller {
       data: {
         userInfo: ctx.user,
         menu: rows,
+        qiniu: {
+          token: ctx.app.qiniuUploadToken,
+        },
       },
     });
   }
@@ -67,7 +70,7 @@ class AccountsController extends Controller {
   // 新增用户
   async add() {
     const { ctx } = this;
-    const entity = mapValue([ 'mobile', 'name', 'sex', 'birthday' ], ctx.request.body);
+    const entity = mapValue([ 'mobile', 'name', 'sex', 'birthday', 'userImg', 'roleCode' ], ctx.request.body);
     const result = await ctx.service.accounts.create(entity);
     ctx.body = result;
   }
@@ -75,7 +78,7 @@ class AccountsController extends Controller {
   // 更新用户信息
   async update() {
     const { ctx } = this;
-    const entity = mapValue([ 'id', 'name', 'sex', 'birthday' ], ctx.request.body);
+    const entity = mapValue([ 'id', 'name', 'sex', 'birthday', 'userImg', 'roleCode' ], ctx.request.body);
     const result = await ctx.service.accounts.update(entity);
     ctx.body = result;
   }
