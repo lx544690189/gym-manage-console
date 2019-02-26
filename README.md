@@ -1,14 +1,6 @@
-# sequelize-project
+# gym-project
 
-
-
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
+## Development
 
 ```bash
 $ npm i
@@ -16,18 +8,31 @@ $ npm run dev
 $ open http://localhost:7001/
 ```
 
-### Deploy
+## 相关技术
+  - 框架：[eggjs](https://eggjs.org/zh-cn/intro/quickstart.html)
+  - 数据库：mysql
+  - 数据库ORM: [Sequelize](https://itbilu.com/nodejs/npm/VkYIaRPz-.html#induction)
+  - 对象存储：七牛云
+  - 登录状态：基于session，将扩展token登录
 
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+## task
+- [x] 员工管理
+- [ ] 会员管理
+- [ ] 会员卡管理
+- [ ] 资金流水
+- [ ] 意向客户管理
+- [x] session登录、退出
+- [ ] token登录
+- [x] middleware：未登录拦截
+- [x] 省市区相关地址接口
+- [x] 七牛云上传下载、schedule任务获取token
+- [x] 菜单管理
+- [x] 角色管理
+- [x] 租户管理
+- [x] 课程管理
+- [ ] 衣柜管理
+- [ ] 商品管理
+- [ ] 积分管理
+- [ ] 来访记录
+- [ ] 员工绩效
+- [ ] more...
