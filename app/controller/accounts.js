@@ -54,13 +54,8 @@ class AccountsController extends Controller {
   // 获取用户列表
   async list() {
     const { ctx } = this;
-    const { pageNumber = 1, pageSize = 10, userName, mobile } = ctx.request.body;
-    const result = await ctx.service.accounts.list({
-      pageNumber,
-      pageSize,
-      userName,
-      mobile,
-    });
+    const userInfo = mapValue([ 'name', 'mobile', 'roleCode' ], ctx.request.body);
+    const result = await ctx.service.accounts.list(userInfo);
 
     ctx.body = success({
       data: result,
