@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "egg": {
+    "declarations": true
+  },
   "dependencies": {
     "egg": "^2.2.1",
     "egg-passport": "^2.0.1",

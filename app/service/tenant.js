@@ -2,7 +2,16 @@ const { getWhereLikeSql } = require('../../utils/index');
 const Service = require('egg').Service;
 
 class Tenant extends Service {
-  // 新增
+  /**
+   * @typedef {Object} Tenant - tenant class
+   * @property {String} name - name
+   */
+
+  /**
+   * @description
+   * @param {*} tenant
+   * @memberof Tenant
+   */
   async create(tenant) {
     await this.ctx.model.Tenant.create(tenant);
   }

@@ -1,4 +1,7 @@
 
+/**
+ * @param {Egg.EggAppInfo} appInfo
+ */
 module.exports = appInfo => {
   return {
     // use for cookie sign key, should change to your own and keep security
