@@ -1,4 +1,4 @@
-const { success, error, getWhereLikeSql } = require('../../utils/index');
+const { success, error, getWhereLikeSql, getWhereSql } = require('../../utils/index');
 const Service = require('egg').Service;
 
 class Accounts extends Service {
@@ -20,7 +20,7 @@ class Accounts extends Service {
   }
 
   // 分页获取用户数据
-  async list({ pageNumber = 1, pageSize = 10, userName, mobile }) {
+  async list({ pageNumber = 1, pageSize = 10, name, mobile, roleCode }) {
     return this.ctx.model.Accounts.findAndCountAll({
       offset: (pageNumber - 1) * 10,
       limit: pageSize,
@@ -31,7 +31,10 @@ class Accounts extends Service {
       //     [Op.like]: `%${userName}%`,
       //   },
       // },
-      where: getWhereLikeSql({ userName, mobile }),
+      where: {
+        ...getWhereLikeSql({ name, mobile, roleCode }),
+        ...getWhereSql({ roleCode }),
+      },
     });
   }
 
