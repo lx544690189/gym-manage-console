@@ -17,14 +17,11 @@ module.exports = appInfo => {
     // 数据库配置
     sequelize: {
       dialect: 'mysql',
-      // host: '127.0.0.1',
-      host: 'rm-bp1f6i2iqou3j3101go.mysql.rds.aliyuncs.com',
+      host: '127.0.0.1',
       port: 3306,
       database: 'gym',
-      // username: 'root',
-      // password: 'password',
-      username: 'lx544690189',
-      password: 'Lx82213175',
+      username: 'root',
+      password: 'password',
       timezone: '+08:00', // 东八时区
     },
     // 安全认证
